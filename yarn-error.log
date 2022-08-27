@@ -1,0 +1,49 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Users\kibsd\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add nodemon
+
+PATH: 
+  C:\Users\kibsd\anaconda3;C:\Users\kibsd\anaconda3\Library\mingw-w64\bin;C:\Users\kibsd\anaconda3\Library\usr\bin;C:\Users\kibsd\anaconda3\Library\bin;C:\Users\kibsd\anaconda3\Scripts;C:\Users\kibsd\anaconda3\bin;C:\Users\kibsd\anaconda3\condabin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Python310\Scripts;C:\Python310;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Windows\System32\OpenSSH;C:\ProgramData\chocolatey\bin;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Microsoft SQL Server\130\Tools\Binn;C:\Program Files\Microsoft SQL Server\150\Tools\Binn;C:\Program Files\Git\cmd;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn;C:\TDM-GCC-64\bin;C:\Program Files\dotnet;C:\Program Files\nodejs;C:\Program Files\OpenJDK\openjdk-11.0.15_10\bin;C:\Users\kibsd\AppData\Local\Microsoft\WindowsApps;C:\Users\kibsd\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\kibsd\AppData\Local\GitHubDesktop\bin;C:\Program Files\JetBrains\PyCharm Community Edition 2021.3.2\bin;.;C:\Program Files\Dart\dart-sdk\bin;C:\flutter\bin;C:\Users\kibsd\.dotnet\tools;C:\Program Files\PostgreSQL\14\bin;C:\Program Files\PostgreSQL\14\lib;C:\Users\kibsd\AppData\Local\Android\Sdk\platform-tools;C:\Users\kibsd\AppData\Roaming\npm;C:\Users\kibsd\anaconda3\Scripts;C:\Users\kibsd\anaconda3;C:\Python310\Scripts;C:\Users\kibsd\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\Scripts;C:\Program Files\heroku\bin
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  16.15.0
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: EPERM: operation not permitted, unlink 'C:\Users\kibsd\codes\codes\ghp\basic-node\node_modules\keccak\prebuilds\win32-x64\node.napi.node'
+
+npm manifest: 
+  {
+    "name": "blockchain",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+      "@nomicfoundation/hardhat-toolbox": "^1.0.2",
+      "hardhat": "^2.10.2"
+    },
+    "dependencies": {
+      "@truffle/hdwallet-provider": "^2.0.12",
+      "cors": "^2.8.5",
+      "express": "^4.18.1",
+      "mysql2": "^2.3.3",
+      "truffle": "^5.5.23",
+      "web3": "^1.7.4"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

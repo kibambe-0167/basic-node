@@ -20,3 +20,18 @@ main()
 
 // Account balance: 10000000000000000000000
 // Token address: 0x5FbDB2315678afecb367f032d93F642f64180aa3
+
+
+// compile using hardhat.
+// npx hardhat compile
+
+
+
+// to deploy: 
+// // npx hardhat compile
+
+// // npx hardhat run scripts/deploy.js
+// // npx hardhat node
+// // npx hardhat run scripts/deploy.js --network localhost
+// // 
+// when contract have change, migrate, then compile, then deploy.

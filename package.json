@@ -11,13 +11,14 @@
   "license": "ISC",
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^1.0.2",
-    "hardhat": "^2.10.1"
+    "hardhat": "^2.10.2"
   },
   "dependencies": {
     "@truffle/hdwallet-provider": "^2.0.12",
     "cors": "^2.8.5",
     "express": "^4.18.1",
     "mysql2": "^2.3.3",
+    "nodemon": "^2.0.19",
     "truffle": "^5.5.23",
     "web3": "^1.7.4"
   }

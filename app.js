@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 var cors = require('cors');
 const port = 4000;
-
+// patisa
 // require("dotenv").config();
 const bodyParser = require('body-parser');
 const Web3 = require('web3');
@@ -32,53 +32,47 @@ app.use(express.json());
 
 // get all medicine
 const get = async() => {
-    var medicines = await myContract.getAll((error, result) => {
-        if(!error) {
-            console.log( result );
-        }
-        else {
-            console.log(error);
-        }
-    });
-    console.log(medicines)
+    const medicines = await myContract.methods.getAll().call();
+    // console.log("here:", medicines);
     return medicines;
 };
 
-// post medicine for the stakeholders to track
+
+// get a medicine
 const add = async(data) => {
-    var res = await myContract.methods.setMedicine(data.name, data.madeBy, data.description, data.batchNumber);
-    console.log(res);
-    return res;
-};
+    var response = await myContract.methods.add(data.name, data.description, data.madeBy, data.batch).send({from: contractAdrr});
+    console.log( response.arguments );
+}
+
 
 
 // index end points
-app.get('/', async(req, ress) => {
-    ress.json({ message: "Initial End Points..." });
+app.get('/', async(req, res) => {
+    res.json({ message: "Initial End Points..." });
 });
 
 // entry end point.
-app.get('/get', async(req, ress) => {
-    var data = undefined;
-    await get().then(res => {
-        var d = res;
-        data = d;
-        // console.log("\n\nRESPONSE", res);
-        // patisa
-        ress.json({ message: data.getmedicine });
+app.get('/get', async(req, res) => {
+    get().then( data => {
+        res.json({ message: data });
+    }).catch( err => {
+        console.log( err);
+        res.json({ message: "error" });
     });
-})
+
+    // .then(res => {
+    //     var d = res;
+    //     data = d;
+    //     ress.json({ message: data.getmedicine });
+    // });
+});
 
 // set medicine to block chain
 app.post("/add", async(req, res) => {
     meds = req.body;
-    data = undefined;
     console.log(meds);
-    add(meds).then(res => {
-        console.log("\n\nRESPONSE:", res);
-        data = res;
-    });
-    res.json({ message: data });
+    add( meds ); // send to contract.
+    res.json({ message: "data added" });
 });
 
 
@@ -86,3 +80,11 @@ app.post("/add", async(req, res) => {
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
 });
+
+
+// post medicine for the stakeholders to track
+// const add = async(data) => {
+//     var res = await myContract.methods.setMedicine(data.name, data.madeBy, data.description, data.batchNumber);
+//     console.log(res);
+//     return res;
+// };

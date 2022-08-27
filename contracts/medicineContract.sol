@@ -11,6 +11,14 @@ contract MedicineContract {
   string madeBy;
   string batchNumber;
 
+  constructor() {
+    name = "Dummy Name";
+    description = "Dummy Description";
+    madeBy = "Dummy Medicine Owner";
+    batchNumber = "Dummy Batch Number";
+  }
+
+
   // a medicine  to the block chain
   function add(string memory _name, string memory info, string memory made, string memory batchNo ) public {
     name = _name;

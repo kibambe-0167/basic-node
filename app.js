@@ -38,8 +38,15 @@ const get = async() => {
 
 // get a medicine
 const add = async(data) => {
-    var response = await myContract.methods.add(data.name, data.description, data.madeBy, data.batch).send({from: contractAdrr});
+    var response = await myContract.methods.add(data.name, data.description, data.madeBy, data.batch).send({ address: contractAdrr, from: contractAdrr,  });
     console.log( response );
+    // get new data...
+    get().then( data => {
+        console.log( data );
+    }).catch( err => {
+        console.log( err);
+        console.log( err);
+    });
 }
 
 

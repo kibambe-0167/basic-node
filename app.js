@@ -33,15 +33,13 @@ app.use(express.json());
 // get all medicine
 const get = async() => {
     const medicines = await myContract.methods.getAll().call();
-    // console.log("here:", medicines);
     return medicines;
 };
-
 
 // get a medicine
 const add = async(data) => {
     var response = await myContract.methods.add(data.name, data.description, data.madeBy, data.batch).send({from: contractAdrr});
-    console.log( response.arguments );
+    console.log( response );
 }
 
 

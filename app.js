@@ -20,7 +20,7 @@ const url_ = "http://127.0.0.1:8545/";
 const provider = new Provider(privateKeys, url_);
 const web3 = new Web3(provider);
 const myContract = new web3.eth.Contract(MyContract.abi, address);
-
+web3.eth.accounts.wallet.add('0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80');
 
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -28,6 +28,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.raw());
 app.use(cors());
 app.use(express.json());
+
 
 
 // get all medicine
@@ -38,7 +39,8 @@ const get = async() => {
 
 // get a medicine
 const add = async(data) => {
-    var response = await myContract.methods.add(data.name, data.description, data.madeBy, data.batch).send({ address: contractAdrr, from: contractAdrr,  });
+    var response = await myContract.methods.add(data.name, data.description, data.madeBy, data.batch).
+        send({ from: contractAdrr, gasLimit: 23104 });
     console.log( response );
     // get new data...
     get().then( data => {
@@ -55,6 +57,8 @@ const add = async(data) => {
 app.get('/', async(req, res) => {
     res.json({ message: "Initial End Points..." });
 });
+
+
 
 // entry end point.
 app.get('/get', async(req, res) => {

@@ -11,7 +11,7 @@ const MyContract = require('./artifacts/contracts/medicineContract.sol/MedicineC
 
 const contractAdrr = "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266";
 const address = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
-var privateKeys = [
+const privateKeys = [
     "3f841bf589fdf83a521e55d51afddc34fa65351161eead24f064855fc29c9580",
     "9549f39decea7b7504e15572b2c6a72766df0281cea22bd1a3bc87166b1ca290",
 ];
@@ -40,13 +40,12 @@ const get = async() => {
 // get a medicine
 const add = async(data) => {
     var response = await myContract.methods.add(data.name, data.description, data.madeBy, data.batch).
-        send({ from: contractAdrr, gasLimit: 23104 });
+        send({ from: contractAdrr, gasLimit: 30000}); // , gasLimit: 23104 
     console.log( response );
     // get new data...
     get().then( data => {
         console.log( data );
     }).catch( err => {
-        console.log( err);
         console.log( err);
     });
 }
@@ -68,12 +67,6 @@ app.get('/get', async(req, res) => {
         console.log( err);
         res.json({ message: "error" });
     });
-
-    // .then(res => {
-    //     var d = res;
-    //     data = d;
-    //     ress.json({ message: data.getmedicine });
-    // });
 });
 
 // set medicine to block chain
